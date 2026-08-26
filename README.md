@@ -83,6 +83,22 @@ Fuori dal repo restano tre cose, per scelta:
 - `node_modules/` e `.next/` — si rigenerano con `npm install` e
   `npm run build`.
 
+### Pubblicare il repository
+
+Il progetto è già sotto git. Per metterlo su GitHub serve autenticarsi una
+volta sola — è un passaggio che richiede il browser, quindi va fatto a mano:
+
+```bash
+~/.local/bin/gh auth login      # GitHub.com > HTTPS > via browser
+./scripts/pubblica-su-github.sh # crea il repo privato e carica
+```
+
+Lo script accetta un nome diverso e `--public`:
+`./scripts/pubblica-su-github.sh nome-repo --public`.
+
+`gh` sta in `~/.local/bin`, che come `~/.local/node/bin` non è nel PATH:
+lo script se lo aggiunge da sé.
+
 Prima di aprire una pull request:
 
 ```bash
