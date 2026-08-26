@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Tiene il sito acceso su http://localhost:3000 come servizio dell'utente:
+  parte al login e riparte se cade. Non è installato: per attivarlo vedi
+  la sezione "Tenere il sito sempre acceso" nel README.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.rophysics.sito</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/kaku/.local/node/bin/npm</string>
+    <string>run</string>
+    <string>dev</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/kaku/Desktop/ROPHYSICS LAB/sito-multipagina</string>
+
+  <!-- node non è nel PATH di sistema: senza questo launchd non lo trova. -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/Users/kaku/.local/node/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/kaku/Desktop/ROPHYSICS LAB/sito-multipagina/.logs/servizio.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/kaku/Desktop/ROPHYSICS LAB/sito-multipagina/.logs/servizio.log</string>
+</dict>
+</plist>
