@@ -38,25 +38,35 @@ Per sganciarlo dal terminale, una volta sola:
 nohup npm run dev > .logs/dev.log 2>&1 &
 ```
 
-Regge la chiusura del terminale, non il riavvio del Mac. Per farlo ripartire da
-solo a ogni login c'è `scripts/com.rophysics.sito.plist`:
+Regge la chiusura del terminale e della sessione, **non il riavvio del Mac**.
+Dopo un riavvio va rilanciato: il modo più rapido è il doppio clic su
+`Avvia sito.command` nella cartella del progetto, che lo riaccende in
+background e apre il browser.
+
+#### Perché non c'è un avvio automatico al login
+
+Ci sarebbe `scripts/com.rophysics.sito.plist`, un LaunchAgent che
+partirebbe a ogni login. **Non funziona finché il progetto sta in
+`~/Desktop`**: macOS protegge Desktop, Documenti e Download con TCC, e un
+processo lanciato da `launchd` non ha quel permesso. Il servizio parte e
+muore subito con:
+
+```
+Error: EPERM: process.cwd failed with error operation not permitted, uv_cwd
+```
+
+e con `KeepAlive` va in loop di riavvii. Per usarlo servirebbe spostare il
+progetto fuori dalle cartelle protette (per esempio `~/Sites/`), poi:
 
 ```bash
 cp scripts/com.rophysics.sito.plist ~/Library/LaunchAgents/
 launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.rophysics.sito.plist
 ```
 
-Da lì in poi `http://localhost:3000` risponde sempre, e riparte anche se il
-processo cade. Per fermarlo e disinstallarlo:
+I percorsi assoluti dentro il plist vanno aggiornati alla nuova posizione.
+Per fermarlo: `launchctl bootout gui/$(id -u)/com.rophysics.sito`.
 
-```bash
-launchctl bootout gui/$(id -u)/com.rophysics.sito
-rm ~/Library/LaunchAgents/com.rophysics.sito.plist
-```
-
-I log stanno in `.logs/`. Il servizio usa `npm run dev`, quindi le modifiche
-ai file si vedono subito; il percorso del progetto è scritto dentro il plist e
-va aggiornato se la cartella si sposta.
+I log stanno in `.logs/`.
 
 ## Collaborare
 
