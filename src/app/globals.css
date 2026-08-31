@@ -106,11 +106,6 @@ header {
   height: 56px;
   width: auto;
 }
-.logo-lockup img.poliba {
-  height: 54px;
-  width: auto;
-  opacity: 0.95;
-}
 nav {
   font-family: var(--mono);
   font-size: 13px;
@@ -966,9 +961,6 @@ footer .colofone a:hover {
   }
   .logo-lockup img.rpl {
     height: 46px;
-  }
-  .logo-lockup img.poliba {
-    height: 44px;
   }
   .panel {
     grid-template-columns: 1fr;

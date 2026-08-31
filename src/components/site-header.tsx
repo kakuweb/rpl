@@ -21,14 +21,6 @@ export function SiteHeader() {
           height={101}
           priority
         />
-        <Image
-          className="poliba"
-          src="/poliba-logo.png"
-          alt={site.institution}
-          width={252}
-          height={240}
-          priority
-        />
       </Link>
 
       <nav aria-label="Main">
