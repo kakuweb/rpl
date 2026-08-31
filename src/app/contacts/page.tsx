@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import { Container, InnerHero } from "@/components/ui";
 import { site } from "@/lib/site";
 
-import { ContactForm } from "./contact-form";
-
 const mapQuery = encodeURIComponent(
   `${site.institution}, Via Edoardo Orabona 4, 70125 Bari`,
 );
@@ -89,8 +87,18 @@ export default function ContactsPage() {
         </div>
 
         <h2 className="titolo-sezione">Write to us</h2>
-        <div className="blocco-contatti">
-          <ContactForm />
+        {/* Il form vero è in _form-disabilitato/: è una Server Action e non
+            funziona su un sito statico. Vedi il LEGGIMI lì dentro. */}
+        <div className="blocco-contatti invito-email">
+          <p>
+            Write to us at{" "}
+            <a href={`mailto:${site.email}`}>{site.email}</a> — tell us who you
+            are and what you are interested in. For theses and PhD positions,
+            attach your CV.
+          </p>
+          <a className="btn-blu" href={`mailto:${site.email}`}>
+            Send an email
+          </a>
         </div>
       </Container>
     </main>

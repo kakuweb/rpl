@@ -1,5 +1,9 @@
 import type { MetadataRoute } from "next";
 
+// Richiesto da `output: "export"`: senza server non c'è nulla da
+// rigenerare a runtime, il file si scrive una volta a build.
+export const dynamic = "force-static";
+
 import { getNews, getPapers } from "@/lib/queries";
 import { navigation, site } from "@/lib/site";
 

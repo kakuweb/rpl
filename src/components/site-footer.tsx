@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Fragment } from "react";
 
 import { InstagramIcon, LinkedInIcon } from "@/components/social-icons";
-import { navigation, site, social } from "@/lib/site";
+import { asset, navigation, site, social } from "@/lib/site";
 
 const icone = {
   Instagram: InstagramIcon,
@@ -15,7 +15,7 @@ export function SiteFooter() {
     <footer>
       <Image
         className="loghi-istituzionali"
-        src="/institutional-logos.png"
+        src={asset("/institutional-logos.png")}
         alt="Politecnico di Bari · European Research Council"
         width={520}
         height={130}
@@ -48,7 +48,7 @@ export function SiteFooter() {
           aria-label={`${site.spinoff.name} — spin-off (opens in a new tab)`}
         >
           <Image
-            src="/omnigrasp.png"
+            src={asset("/omnigrasp.png")}
             alt={`${site.spinoff.name}, spin-off of the laboratory`}
             width={252}
             height={193}

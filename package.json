@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
-    "db:setup": "node scripts/db-setup.mjs"
+    "db:setup": "node scripts/db-setup.mjs",
+    "build:pages": "NEXT_PUBLIC_BASE_PATH=/rpl next build"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.9",

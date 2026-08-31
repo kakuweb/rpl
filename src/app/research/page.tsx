@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Media } from "@/components/media";
 import { Container, InnerHero, OfflineNotice } from "@/components/ui";
 import { getPapers, getResearchLines } from "@/lib/queries";
-import { site } from "@/lib/site";
+import { asset, site } from "@/lib/site";
 
 export const revalidate = 300;
 
@@ -83,7 +83,7 @@ export default async function ResearchPage() {
           aria-label={`${site.spinoff.name} — spin-off (opens in a new tab)`}
         >
           <Image
-            src="/omnigrasp.png"
+            src={asset("/omnigrasp.png")}
             alt={`${site.spinoff.name}, spin-off of the laboratory`}
             width={252}
             height={193}

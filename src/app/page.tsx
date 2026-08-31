@@ -5,7 +5,7 @@ import { LatestNews } from "@/components/latest-news";
 import { Button, OfflineNotice } from "@/components/ui";
 import { VideoEmbed } from "@/components/video-embed";
 import { getNews, getPapers } from "@/lib/queries";
-import { site } from "@/lib/site";
+import { asset, site } from "@/lib/site";
 
 export const revalidate = 300;
 
@@ -34,7 +34,7 @@ export default async function HomePage() {
     <main>
       <section className="hero">
         <Image
-          src="/team-hero.jpg"
+          src={asset("/team-hero.jpg")}
           alt="The RoboPhysics Laboratory team on a dry-stone wall at sunset"
           fill
           priority
@@ -86,7 +86,7 @@ export default async function HomePage() {
             {/* Animata: Next non ottimizza le immagini animate, quindi il file
                 è già stato ridotto e convertito in WebP a monte. */}
             <Image
-              src="/untethered-woven.webp"
+              src={asset("/untethered-woven.webp")}
               alt="An untethered woven muscle pair contracting and extending in a loop"
               width={760}
               height={428}
@@ -134,7 +134,7 @@ export default async function HomePage() {
       <section className="wearable">
         <div className="foto">
           <Image
-            src="/haptic-glove-prototype.jpg"
+            src={asset("/haptic-glove-prototype.jpg")}
             alt="Haptic glove prototype on a stand: a black textile glove with blue fluidic actuators along the fingers and the back of the hand, connected by blue tubing to the driving electronics"
             width={1400}
             height={1050}

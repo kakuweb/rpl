@@ -1,0 +1,58 @@
+# Costruisce il sito come HTML statico e lo pubblica su GitHub Pages.
+# A ogni push su main il sito online si aggiorna da sé.
+#
+# Il form di /contacts non è incluso: è una Server Action e richiede un
+# server. Vedi src/app/contacts/_form-disabilitato/LEGGIMI.md.
+name: Pubblica su GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # permette di rilanciarlo a mano dalla tab Actions
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un deploy per volta, senza annullare quello in corso.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # NEXT_PUBLIC_BASE_PATH è ciò che accende l'export statico e mette il
+      # prefisso /rpl a pagine e immagini (vedi next.config.ts e lib/site.ts).
+      - name: Build statico
+        env:
+          NEXT_PUBLIC_BASE_PATH: /rpl
+          NEXT_PUBLIC_SITE_URL: https://kakuweb.github.io/rpl
+        run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

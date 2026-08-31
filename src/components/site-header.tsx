@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Fragment } from "react";
 
-import { navigation, site } from "@/lib/site";
+import { asset, navigation, site } from "@/lib/site";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -15,7 +15,7 @@ export function SiteHeader() {
       <Link href="/" className="logo-lockup" aria-label={`${site.name} — home`}>
         <Image
           className="rpl"
-          src="/rpl-logo.png"
+          src={asset("/rpl-logo.png")}
           alt={site.name}
           width={248}
           height={101}

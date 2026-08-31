@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { Placeholder } from "@/components/placeholder";
+import { asset } from "@/lib/site";
 
 /**
  * Immagine di un contenuto, con il segnaposto del wireframe come ripiego
@@ -30,6 +31,8 @@ export function Media({
 }) {
   if (!url) return <Placeholder label={label} className={className} />;
 
+  const src = asset(url);
+
   // Il testo del segnaposto descrive già il contenuto: riusarlo come alt
   // evita didascalie doppie, togliendo il prefisso "Image —".
   const alt = label.replace(/^(Image|Photo|Video still|Preview)\s+—\s+/i, "");
@@ -38,7 +41,7 @@ export function Media({
     return (
       <Image
         className={className}
-        src={url}
+        src={src}
         alt={alt}
         fill
         sizes={sizes ?? "(max-width: 960px) 100vw, 50vw"}
@@ -50,7 +53,7 @@ export function Media({
   return (
     <Image
       className={className}
-      src={url}
+      src={src}
       alt={alt}
       width={width ?? 1600}
       height={height ?? 900}

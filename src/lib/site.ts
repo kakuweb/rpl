@@ -1,4 +1,23 @@
 /**
+ * Sottopercorso in cui il sito è pubblicato, vuoto quando sta alla radice.
+ * La imposta il workflow di GitHub Pages (NEXT_PUBLIC_BASE_PATH=/rpl); è la
+ * stessa variabile che next.config.ts usa per `basePath`, così non possono
+ * divergere.
+ */
+export const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+/**
+ * Percorso di un file di public/, con il prefisso davanti.
+ *
+ * Serve perché con `images.unoptimized` Next NON applica il basePath agli
+ * `src` di next/image: i link di navigazione lo prendono, le immagini no.
+ * Senza questo, su kakuweb.github.io/rpl sarebbero tutte 404. Gli indirizzi
+ * assoluti (le miniature YouTube) restano intatti.
+ */
+export const asset = (path: string) =>
+  path.startsWith("/") ? `${basePath}${path}` : path;
+
+/**
  * Dati del sito che non vivono nel database: identità, navigazione, contatti.
  */
 export const site = {
