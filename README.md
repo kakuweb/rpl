@@ -93,6 +93,73 @@ Fuori dal repo restano tre cose, per scelta:
 - `node_modules/` e `.next/` — si rigenerano con `npm install` e
   `npm run build`.
 
+### Lavorare in due sullo stesso progetto
+
+Una volta sola, su ogni computer:
+
+```bash
+./scripts/setup-git.sh
+```
+
+La configurazione di git è locale alla copia del repo e non viaggia con i
+commit, quindi va rifatta su ogni macchina.
+
+**Il metodo: un branch per modifica, poi pull request.** È l'unico che
+impedisce per costruzione di pestarsi i piedi — `main` cambia solo quando una
+PR viene unita, e gli eventuali conflitti si vedono su GitHub prima di
+finire sul tuo computer.
+
+```bash
+git switch main && git pull          # parti sempre dall'ultima versione
+git switch -c cosa-stai-facendo      # es. git switch -c foto-people
+
+# ... lavori, anche più commit ...
+git add -A && git commit -m "descrizione"
+git push                             # crea il branch remoto da sé
+
+gh pr create --fill                  # oppure il pulsante su GitHub
+```
+
+Unita la PR, si ricomincia da `git switch main && git pull`. Il branch vecchio
+si cancella (`git branch -d cosa-stavi-facendo`).
+
+**Se preferite restare tutti su `main`**, funziona ma serve disciplina:
+
+```bash
+git pull                             # PRIMA di iniziare a lavorare
+# ... modifiche ...
+git add -A && git commit -m "..."
+git pull                             # DI NUOVO, prima di pubblicare
+git push
+```
+
+Il secondo `git pull` è quello che evita il rifiuto del push. Se lo salti e
+l'altro ha già pubblicato, git rifiuta: non hai perso niente, fai `git pull`
+e ripeti il push.
+
+**Non usare mai `git push --force` su `main`.** Cancella i commit
+dell'altra persona dal server, ed è l'unico modo reale di perdere lavoro qui.
+
+#### Dove nasceranno i conflitti
+
+Non a caso: i contenuti stanno tutti in due file soli.
+
+| File | Righe | Chi lo tocca |
+| ---- | ----- | ------------ |
+| `src/app/globals.css` | ~1670 | chi lavora sullo stile |
+| `src/lib/data/content.ts` | ~580 | chi lavora sui contenuti |
+| `supabase/seed.sql` | ~290 | chi lavora sui contenuti |
+
+Se due persone modificano `content.ts` nello stesso momento, il conflitto è
+quasi garantito. Il rimedio non è tecnico: mettersi d'accordo su chi tocca
+cosa — per esempio uno i contenuti, l'altro layout e componenti — oppure
+lavorare su sezioni diverse dello stesso file e fare commit corti e frequenti,
+che git riesce a unire da solo.
+
+`package-lock.json` può entrare in conflitto se entrambi lanciano
+`npm install`. Si risolve tenendo una delle due versioni e rilanciando
+`npm install`, che lo riscrive coerente.
+
 ### Pubblicare il repository
 
 Il progetto è già sotto git. Per metterlo su GitHub serve autenticarsi una
