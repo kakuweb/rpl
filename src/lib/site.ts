@@ -16,6 +16,23 @@ export const site = {
   spinoff: { name: "OmniGrasp", url: "https://omnigrasp.com" },
 } as const;
 
+/**
+ * Profili social del laboratorio, nell'ordine in cui compaiono nel footer.
+ * Per LinkedIn serve l'indirizzo pubblico della pagina azienda: quello che
+ * finisce in /admin/dashboard/ è la vista di amministrazione e a chi non
+ * gestisce il profilo restituisce un errore.
+ */
+export const social = [
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/robophysicslab_rpl/",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/company/107037469/",
+  },
+] as const;
+
 export const navigation = [
   { href: "/people", label: "People" },
   { href: "/research", label: "Research" },

@@ -1617,6 +1617,33 @@ footer .colofone a:hover {
   }
 }
 
+/* ---------- SOCIAL NEL FOOTER ---------- */
+/* Il footer è space-between: con i loghi istituzionali a sinistra e lo
+   spin-off a destra, questo blocco si posiziona da sé al centro. */
+footer .social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+footer .social a {
+  display: inline-flex;
+  color: var(--bianco);
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+footer .social a:hover,
+footer .social a:focus-visible {
+  opacity: 1;
+}
+footer .social svg {
+  width: 26px;
+  height: 26px;
+  /* I glifi sono disegnati inline e prendono il colore del testo. */
+  fill: currentColor;
+  display: block;
+}
+
 /* ---------- AVVISO CONTENUTI OFFLINE ---------- */
 .avviso-offline {
   background: #fdf3d3;

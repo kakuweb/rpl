@@ -2,7 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
 
-import { navigation, site } from "@/lib/site";
+import { InstagramIcon, LinkedInIcon } from "@/components/social-icons";
+import { navigation, site, social } from "@/lib/site";
+
+const icone = {
+  Instagram: InstagramIcon,
+  LinkedIn: LinkedInIcon,
+} as const;
 
 export function SiteFooter() {
   return (
@@ -14,6 +20,25 @@ export function SiteFooter() {
         width={520}
         height={130}
       />
+
+      <ul className="social">
+        {social.map((profilo) => {
+          const Icona = icone[profilo.name];
+
+          return (
+            <li key={profilo.name}>
+              <a
+                href={profilo.url}
+                target="_blank"
+                rel="noopener"
+                aria-label={`${site.name} on ${profilo.name} (opens in a new tab)`}
+              >
+                <Icona />
+              </a>
+            </li>
+          );
+        })}
+      </ul>
 
       <div className="spinoff">
         <a
