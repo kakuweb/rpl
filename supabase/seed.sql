@@ -13,13 +13,13 @@ insert into public.people (slug, name, role, role_group, bio, photo_url, photo_l
    '/people/vito-cacucciolo.jpg', 'Portrait photo',
    'https://www.linkedin.com/in/vito-cacucciolo/', 10),
 
-  ('yu-kuwajima', 'Yu Kuwajima', 'Postdoctoral Researcher', 'researchers',
+  ('yu-kuwajima', 'Yu Kuwajima', 'RTDA', 'researchers',
    $t$Soft pumps and electrofluidics. Co-author of the stretchable pumps (Nature, 2019); now working on electro-active fluids for wearable robotics within the RoboFluid project.$t$,
    '/people/yu-kuwajima.jpg', 'Portrait photo', 'https://www.linkedin.com/in/kuwajima-yu-313662308/', 20),
 
-  ('angelo-catalano', 'Angelo Catalano', 'Research Engineer', 'researchers',
+  ('angelo-catalano', 'Angelo Catalano', 'Research Engineer', 'phd',
    $t$PhD candidate on robots-as-a-service for digital industry. Technical team leader in the winning entry at the RoboSoft Competition 2026 in Kanazawa.$t$,
-   '/people/angelo-catalano.jpg', 'Portrait photo', 'https://www.linkedin.com/in/-angelo-catalano/', 40),
+   '/people/angelo-catalano.jpg', 'Portrait photo', 'https://www.linkedin.com/in/-angelo-catalano/', 55),
 
   ('andrea-castellaneta', 'Andrea Castellaneta', 'PhD Student', 'phd',
    $t$Soft and wearable robotics powered by electro-active fluids, within the ERC RoboFluid project and the national PhD programme in Autonomous Systems (DAuSy).$t$,
@@ -41,19 +41,19 @@ insert into public.people (slug, name, role, role_group, bio, photo_url, photo_l
    $t$Member of the winning team at the RoboSoft Competition 2026 (Kanazawa, Japan). Thesis on fluidic-actuator control.$t$,
    null, 'Portrait photo', null, 100),
 
-  -- Biografie ancora da scrivere: le card mostrano nome, ruolo e link.
-  ('simone-de-carolis', 'Simone De Carolis', 'Researcher', 'researchers',
+  -- Bio ancora da scrivere: la card mostra nome, ruolo e link.
+  ('simone-de-carolis', 'Simone De Carolis', 'Research Fellow / Professor', 'researchers',
    '',
    '/people/simone-de-carolis.jpg', 'Portrait photo',
-   'https://www.dmmm.poliba.it/index.php/it/profile/540-simone-decarolis', 45),
+   'https://www.linkedin.com/in/simone-de-carolis-3b9a3011b/', 45),
 
-  ('angelica-de-michele', 'Angelica De Michele', 'PhD Student', 'phd',
-   '',
+  ('angelica-de-michele', 'Angelica De Michele', 'MSc Student', 'students',
+   $t$Master of Science in Mechatronics and Robotics Engineering Student | Bachelor’s Degree in Mechanical Engineering$t$,
    '/people/angelica-de-michele.jpg', 'Portrait photo',
    'https://www.linkedin.com/in/angelica-de-michele-5713052b5/', 75),
 
-  ('nicola-creanza', 'Nicola Creanza', 'PhD Student', 'phd',
-   '',
+  ('nicola-creanza', 'Nicola Creanza', 'MSc Student / Lab Manager', 'students',
+   $t$Master of Science in Mechatronics and Robotics Engineering Student | Bachelor’s Degree in Mechanical Engineering$t$,
    '/people/nicola-creanza.jpg', 'Portrait photo',
    'https://www.linkedin.com/in/nicola-creanza-9509b7255/', 78)
 on conflict (slug) do update set

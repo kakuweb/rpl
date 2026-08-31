@@ -178,13 +178,12 @@ generano una pagina statica per riga tramite `generateStaticParams`.
 ## Cosa manca
 
 - **Immagini.** Home, Research e News sono complete. In `/people` mancano
-  undici ritratti su tredici (`people.photo_url`), e manca una figura del paper
-  Nature 2019. Basta valorizzare la colonna: il componente `<Media>` mostra
-  l'immagine se c'è un URL e il segnaposto se manca, senza toccare il codice
-  della pagina.
-- **Biografie.** Simone De Carolis, Angelica De Michele e Nicola Creanza hanno
-  `bio` vuota: la card mostra nome, ruolo e link al profilo. Riempire `bio`
-  la fa comparire.
+  tre ritratti su undici — Elisabetta Annese, Luca Mitaritonna e Giuseppe
+  Macchia (`people.photo_url`) — e manca una figura del paper Nature 2019.
+  Basta valorizzare la colonna: il componente `<Media>` mostra l'immagine se
+  c'è un URL e il segnaposto se manca, senza toccare il codice della pagina.
+- **Biografie.** Simone De Carolis ha `bio` vuota: la card mostra nome, ruolo
+  e link al profilo. Riempire `bio` la fa comparire.
 - **Video.** `videos.youtube_id` è `null` su tutte le righe della pagina
   `/videos`: finché è vuoto la card resta un segnaposto. Con l'ID di 11
   caratteri il player parte al click. Un video è già collegato: nella home e
