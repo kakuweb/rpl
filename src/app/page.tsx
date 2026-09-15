@@ -134,10 +134,10 @@ export default async function HomePage() {
       <section className="wearable">
         <div className="foto">
           <Image
-            src={asset("/haptic-glove-prototype.jpg")}
-            alt="Haptic glove prototype on a stand: a black textile glove with blue fluidic actuators along the fingers and the back of the hand, connected by blue tubing to the driving electronics"
-            width={1400}
-            height={1050}
+            src={asset("/fiber-pump-two-hands.jpg")}
+            alt="Two hands holding an electrofluidic fiber muscle: a translucent fiber a couple of millimetres thick, coiled into loops against a white background"
+            width={2000}
+            height={1176}
             sizes="(max-width: 960px) 100vw, 55vw"
           />
         </div>
