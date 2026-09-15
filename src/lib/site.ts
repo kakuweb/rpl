@@ -67,6 +67,8 @@ export const roleGroups = [
   { key: "researchers", label: "Researchers & Postdocs" },
   { key: "phd", label: "PhD Students" },
   { key: "students", label: "Students" },
+  { key: "visitors", label: "Visitors" },
+  { key: "alumni", label: "Alumni" },
 ] as const;
 
 export const formatNewsDate = (value: string) =>

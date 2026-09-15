@@ -6,14 +6,15 @@
 create extension if not exists "pgcrypto";
 
 -- ----------------------------------------------------------------- people --
--- role_group pilota il raggruppamento della pagina /people
--- (Principal Investigator, Researchers & Postdocs, PhD Students, Students).
+-- role_group pilota il raggruppamento della pagina /people (Principal
+-- Investigator, Researchers & Postdocs, PhD Students, Students, Visitors,
+-- Alumni). Le intestazioni e il loro ordine stanno in src/lib/site.ts.
 create table if not exists public.people (
   id          uuid primary key default gen_random_uuid(),
   slug        text not null unique,
   name        text not null,
   role        text not null,
-  role_group  text not null check (role_group in ('pi', 'researchers', 'phd', 'students')),
+  role_group  text not null check (role_group in ('pi', 'researchers', 'phd', 'students', 'visitors', 'alumni')),
   bio         text not null default '',
   photo_url   text,
   photo_label text not null default 'Portrait photo',
@@ -90,8 +91,16 @@ create table if not exists public.news (
   published    boolean not null default true
 );
 
--- Colonne aggiunte dopo il primo rilascio: `create table if not exists` non
--- tocca una tabella che esiste già, quindi vanno aggiunte a parte.
+-- ------------------------------------------------------------- migrazioni --
+-- `create table if not exists` non tocca una tabella che esiste già: quello
+-- che è cambiato dopo il primo rilascio va riapplicato qui sotto.
+
+-- role_group ora accetta anche 'visitors' e 'alumni'.
+alter table public.people drop constraint if exists people_role_group_check;
+alter table public.people add constraint people_role_group_check
+  check (role_group in ('pi', 'researchers', 'phd', 'students', 'visitors', 'alumni'));
+
+-- news: galleria di foto e link al post di origine.
 alter table public.news add column if not exists gallery      jsonb not null default '[]'::jsonb;
 alter table public.news add column if not exists source_url   text;
 alter table public.news add column if not exists source_label text;

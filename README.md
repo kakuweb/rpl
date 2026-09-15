@@ -260,6 +260,10 @@ generano una pagina statica per riga tramite `generateStaticParams`.
   `img/`, materiale del laboratorio. Le figure pubblicate su Nature, Science e
   Science Robotics non sono state riprese dai siti degli editori: ripubblicarle
   richiede una licenza, che va verificata caso per caso.
-- **Mappa.** `/contacts` ha il segnaposto al posto dell'embed di Google Maps.
-- **Uno slot vuoto** ereditato dal wireframe: la persona `[Name Surname]` in
-  `/people`.
+- **Visitors e Alumni.** Le due sezioni di `/people` esistono ma contengono
+  solo segnaposto: due righe per gruppo con nome `[Name Surname]` e il testo
+  fra parentesi quadre che dice cosa scriverci. Si sostituiscono o si tolgono
+  — un gruppo senza righe non viene reso affatto.
+- **Form contatti.** Su GitHub Pages non funziona: è una Server Action e il
+  sito è statico. Il codice è in `src/app/contacts/_form-disabilitato/`, con
+  le istruzioni per riattivarlo su un hosting che esegua Next.js.

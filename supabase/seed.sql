@@ -13,11 +13,11 @@ insert into public.people (slug, name, role, role_group, bio, photo_url, photo_l
    '/people/vito-cacucciolo.jpg', 'Portrait photo',
    'https://www.linkedin.com/in/vito-cacucciolo/', 10),
 
-  ('yu-kuwajima', 'Yu Kuwajima', 'RTDA', 'researchers',
+  ('yu-kuwajima', 'Yu Kuwajima', 'Assistant Professor / RTDA', 'researchers',
    $t$Soft pumps and electrofluidics. Co-author of the stretchable pumps (Nature, 2019); now working on electro-active fluids for wearable robotics within the RoboFluid project.$t$,
    '/people/yu-kuwajima.jpg', 'Portrait photo', 'https://www.linkedin.com/in/kuwajima-yu-313662308/', 20),
 
-  ('angelo-catalano', 'Angelo Catalano', 'Research Engineer', 'phd',
+  ('angelo-catalano', 'Angelo Catalano', 'PhD Student', 'phd',
    $t$PhD candidate on robots-as-a-service for digital industry. Technical team leader in the winning entry at the RoboSoft Competition 2026 in Kanazawa.$t$,
    '/people/angelo-catalano.jpg', 'Portrait photo', 'https://www.linkedin.com/in/-angelo-catalano/', 55),
 
@@ -42,7 +42,7 @@ insert into public.people (slug, name, role, role_group, bio, photo_url, photo_l
    null, 'Portrait photo', null, 100),
 
   -- Bio ancora da scrivere: la card mostra nome, ruolo e link.
-  ('simone-de-carolis', 'Simone De Carolis', 'Research Fellow / Professor', 'researchers',
+  ('simone-de-carolis', 'Simone De Carolis', 'Assistant Professor / RTDA', 'researchers',
    '',
    '/people/simone-de-carolis.jpg', 'Portrait photo',
    'https://www.linkedin.com/in/simone-de-carolis-3b9a3011b/', 45),
@@ -55,7 +55,25 @@ insert into public.people (slug, name, role, role_group, bio, photo_url, photo_l
   ('nicola-creanza', 'Nicola Creanza', 'MSc Student / Lab Manager', 'students',
    $t$Master of Science in Mechatronics and Robotics Engineering Student | Bachelor’s Degree in Mechanical Engineering$t$,
    '/people/nicola-creanza.jpg', 'Portrait photo',
-   'https://www.linkedin.com/in/nicola-creanza-9509b7255/', 78)
+   'https://www.linkedin.com/in/nicola-creanza-9509b7255/', 78),
+
+  -- Segnaposto: le sezioni Visitors e Alumni compaiono solo se hanno righe.
+  -- Il testo fra parentesi quadre dice cosa ci va; vanno sostituiti o tolti.
+  ('visitor-slot-1', '[Name Surname]', 'Visiting Researcher', 'visitors',
+   $t$[Home institution, period of the stay and topic worked on in the lab.]$t$,
+   null, 'Portrait photo', null, 110),
+
+  ('visitor-slot-2', '[Name Surname]', 'Visiting PhD Student', 'visitors',
+   $t$[Home institution, period of the stay and topic worked on in the lab.]$t$,
+   null, 'Portrait photo', null, 120),
+
+  ('alumni-slot-1', '[Name Surname]', '[Role in the lab, years]', 'alumni',
+   $t$[What they worked on here, and where they are now.]$t$,
+   null, 'Portrait photo', null, 130),
+
+  ('alumni-slot-2', '[Name Surname]', '[Role in the lab, years]', 'alumni',
+   $t$[What they worked on here, and where they are now.]$t$,
+   null, 'Portrait photo', null, 140)
 on conflict (slug) do update set
   name = excluded.name, role = excluded.role, role_group = excluded.role_group,
   bio = excluded.bio, photo_url = excluded.photo_url,

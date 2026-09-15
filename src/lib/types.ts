@@ -1,4 +1,10 @@
-export type RoleGroup = "pi" | "researchers" | "phd" | "students";
+export type RoleGroup =
+  | "pi"
+  | "researchers"
+  | "phd"
+  | "students"
+  | "visitors"
+  | "alumni";
 
 export type Person = {
   id: string;
