@@ -5,7 +5,7 @@
 
 -- ----------------------------------------------------------------- people --
 -- Usciti dal gruppo: la seed è rieseguibile, quindi vanno tolti esplicitamente.
-delete from public.people where slug in ('gabriele-pupillo', 'gennaro-vitucci', 'phd-slot');
+delete from public.people where slug in ('gabriele-pupillo', 'gennaro-vitucci', 'phd-slot', 'alumni-slot-1', 'alumni-slot-2');
 
 insert into public.people (slug, name, role, role_group, bio, photo_url, photo_label, profile_url, sort_order) values
   ('vito-cacucciolo', 'Vito Cacucciolo', 'Principal Investigator', 'pi',
@@ -67,13 +67,11 @@ insert into public.people (slug, name, role, role_group, bio, photo_url, photo_l
    $t$[Home institution, period of the stay and topic worked on in the lab.]$t$,
    null, 'Portrait photo', null, 120),
 
-  ('alumni-slot-1', '[Name Surname]', '[Role in the lab, years]', 'alumni',
-   $t$[What they worked on here, and where they are now.]$t$,
-   null, 'Portrait photo', null, 130),
-
-  ('alumni-slot-2', '[Name Surname]', '[Role in the lab, years]', 'alumni',
-   $t$[What they worked on here, and where they are now.]$t$,
-   null, 'Portrait photo', null, 140)
+  -- TODO: ruolo, anni nel laboratorio e posizione attuale da confermare.
+  ('paolo-di-molfetta', 'Paolo Di Molfetta', 'Alumnus', 'alumni',
+   '',
+   '/people/paolo-di-molfetta.jpg', 'Portrait photo',
+   'https://www.linkedin.com/in/paolo-di-molfetta-51b25323a/', 130)
 on conflict (slug) do update set
   name = excluded.name, role = excluded.role, role_group = excluded.role_group,
   bio = excluded.bio, photo_url = excluded.photo_url,
