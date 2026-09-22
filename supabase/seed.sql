@@ -215,8 +215,7 @@ The visit was an occasion to introduce the laboratory and show the work as it st
 What made the conversation worth having was the interest in how the Italian and Japanese research ecosystems might connect — where the two overlap, and where a collaboration would actually add something. Meetings like this one are how those possibilities start: not with an agreement, but with people in a room who understand each other's work.
 
 We thank Dr. Nakade for the visit and for a genuinely stimulating discussion.$t$,
-    -- Nessuna foto: LinkedIn non permette di riprendere le immagini del post.
-    null, 'Photo — the visit to the laboratory',
+    '/news/japan-embassy-visit.jpg', 'Photo — the lab team with Dr. Masahiro Nakade',
     '[]'::jsonb,
     'https://www.linkedin.com/feed/update/urn:li:activity:7508041142039474177',
     'See the post on LinkedIn',
