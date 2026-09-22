@@ -204,6 +204,25 @@ on conflict do nothing;
 -- ------------------------------------------------------------------- news --
 insert into public.news (slug, title, category, excerpt, body, image_url, image_label, gallery, source_url, source_label, published_at) values
   (
+    'japan-embassy-visit-2026',
+    'The Science & Technology Attaché of the Embassy of Japan visits the lab',
+    'Visits',
+    $t$Dr. Masahiro Nakade, First Secretary and Science & Technology Attaché at the Embassy of Japan in Italy, came to see the laboratory: a tour of the research lines, and a conversation about what the Italian and Japanese research ecosystems can build together.$t$,
+    $t$The RoboPhysics Laboratory hosted Dr. Masahiro Nakade, First Secretary and Science & Technology Attaché at the Embassy of Japan in Italy.
+
+The visit was an occasion to introduce the laboratory and show the work as it stands: the research lines currently running, the technologies developed here, and the scientific problems that are shaping them. Seeing the devices in person tends to make the questions sharper than any presentation does.
+
+What made the conversation worth having was the interest in how the Italian and Japanese research ecosystems might connect — where the two overlap, and where a collaboration would actually add something. Meetings like this one are how those possibilities start: not with an agreement, but with people in a room who understand each other's work.
+
+We thank Dr. Nakade for the visit and for a genuinely stimulating discussion.$t$,
+    -- Nessuna foto: LinkedIn non permette di riprendere le immagini del post.
+    null, 'Photo — the visit to the laboratory',
+    '[]'::jsonb,
+    'https://www.linkedin.com/feed/update/urn:li:activity:7508041142039474177',
+    'See the post on LinkedIn',
+    '2026-09-17'
+  ),
+  (
     'team-building-laino-borgo-2026',
     'Two days outside the lab: the team retreat in Laino Borgo',
     'Life at RPL',
