@@ -33,6 +33,12 @@ export function VideoEmbed({
   children?: ReactNode;
 }) {
   const [playing, setPlaying] = useState(false);
+  // YouTube genera maxresdefault solo per i video caricati in alta
+  // risoluzione. Sugli altri risponde 404, ma con dentro un'immagine grigia
+  // di 120x90: il browser la carica senza lamentarsi e onError non scatta.
+  // L'unico segnale affidabile è quindi la dimensione. hqdefault esiste
+  // sempre, ed è ciò su cui si ripiega.
+  const [miniaturaHD, setMiniaturaHD] = useState(true);
 
   if (!youtubeId) {
     return (
@@ -69,10 +75,16 @@ export function VideoEmbed({
       >
         <Image
           className="video-thumb"
-          src={`https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg`}
+          src={`https://i.ytimg.com/vi/${youtubeId}/${
+            miniaturaHD ? "maxresdefault" : "hqdefault"
+          }.jpg`}
           alt=""
           fill
           sizes="(max-width: 960px) 100vw, 60vw"
+          onLoad={(e) => {
+            if (e.currentTarget.naturalWidth <= 120) setMiniaturaHD(false);
+          }}
+          onError={() => setMiniaturaHD(false)}
         />
         <span className="play-btn" />
       </button>
