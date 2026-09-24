@@ -67,8 +67,8 @@ insert into public.people (slug, name, role, role_group, bio, photo_url, photo_l
    $t$Visiting from Waseda University, from 1 September to 29 November 2026.$t$,
    null, 'Portrait photo', null, 120),
 
-  -- TODO: ruolo, anni nel laboratorio e posizione attuale da confermare.
-  ('paolo-di-molfetta', 'Paolo Di Molfetta', 'Alumnus', 'alumni',
+  -- TODO: anni nel laboratorio e posizione attuale da aggiungere alla bio.
+  ('paolo-di-molfetta', 'Paolo Di Molfetta', 'MSc Student', 'alumni',
    '',
    '/people/paolo-di-molfetta.jpg', 'Portrait photo',
    'https://www.linkedin.com/in/paolo-di-molfetta-51b25323a/', 130)

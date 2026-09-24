@@ -191,9 +191,9 @@ export const people: Person[] = [
     id: "paolo-di-molfetta",
     slug: "paolo-di-molfetta",
     name: "Paolo Di Molfetta",
-    // TODO: ruolo e anni nel laboratorio, e dove si trova ora. Il profilo
-    // LinkedIn non è leggibile senza account, quindi i dati vanno chiesti.
-    role: "Alumnus",
+    // TODO: anni nel laboratorio e posizione attuale, da aggiungere alla
+    // bio. Il profilo LinkedIn non è leggibile senza account.
+    role: "MSc Student",
     role_group: "alumni",
     bio: "",
     photo_url: "/people/paolo-di-molfetta.jpg",
