@@ -1012,8 +1012,21 @@ footer .colofone a:hover {
   .linee {
     grid-template-columns: 1fr;
   }
+  /* Le sei voci occupano 499px fissi: sotto i ~500px la nav sbordava
+     simmetricamente e "People" finiva fuori schermo, irraggiungibile perché
+     la pagina non scorre in orizzontale. Qui va a capo invece di essere
+     tagliata; i separatori spariscono perché a fine riga resterebbero
+     appesi, e a separare basta la spaziatura. */
   nav {
     font-size: 12px;
+    white-space: normal;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 14px;
+  }
+  nav .sep {
+    display: none;
   }
 }
 
