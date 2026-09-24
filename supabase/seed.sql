@@ -59,10 +59,13 @@ insert into public.people (slug, name, role, role_group, bio, photo_url, photo_l
 
   -- Segnaposto: le sezioni Visitors e Alumni compaiono solo se hanno righe.
   -- Il testo fra parentesi quadre dice cosa ci va; vanno sostituiti o tolti.
-  -- TODO: periodo del soggiorno da aggiungere alla bio.
   ('wahei-kamimura', 'Wahei Kamimura', 'Visiting Researcher', 'visitors',
-   $t$Flexible and stretchable electronics: printed circuits and deformable sensors for bioelectronics and soft robotics. Researcher in the Fukuda Research Group at Osaka University.$t$,
+   $t$Flexible and stretchable electronics: printed circuits and deformable sensors for bioelectronics and soft robotics. Researcher in the Fukuda Research Group at Osaka University. At the lab from 24 August to 28 September 2026.$t$,
    null, 'Portrait photo', null, 110),
+
+  ('shinnoyo-yamada', 'Shinnoyo Yamada', 'Visiting Researcher', 'visitors',
+   $t$Visiting from Waseda University, from 1 September to 29 November 2026.$t$,
+   null, 'Portrait photo', null, 120),
 
   -- TODO: ruolo, anni nel laboratorio e posizione attuale da confermare.
   ('paolo-di-molfetta', 'Paolo Di Molfetta', 'Alumnus', 'alumni',
