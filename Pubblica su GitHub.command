@@ -1,6 +1,6 @@
 #!/bin/bash
 # Doppio clic: autentica su GitHub (una volta sola) e carica il progetto su
-# https://github.com/kakuweb/rpl
+# https://github.com/robophysics-poliba/rpl
 #
 # L'autenticazione passa dal browser, perciò va fatta da qui e non può essere
 # automatizzata: GitHub apre una pagina dove confermi con il tuo account.
@@ -35,10 +35,10 @@ echo "Carico $(git rev-list --count HEAD) commit..."
 if git push -u origin main; then
   echo
   echo "Fatto. Il progetto è su:"
-  echo "  https://github.com/kakuweb/rpl"
+  echo "  https://github.com/robophysics-poliba/rpl"
   echo
   echo "Per invitare un collaboratore:"
-  echo "  gh repo add-collaborator kakuweb/rpl <utente-github> --permission push"
+  echo "  gh repo add-collaborator robophysics-poliba/rpl <utente-github> --permission push"
 else
   echo
   echo "Il push è fallito. Il messaggio di errore è qui sopra."

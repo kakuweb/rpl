@@ -38,7 +38,7 @@ jobs:
       - name: Build statico
         env:
           NEXT_PUBLIC_BASE_PATH: /rpl
-          NEXT_PUBLIC_SITE_URL: https://kakuweb.github.io/rpl
+          NEXT_PUBLIC_SITE_URL: https://robophysics-poliba.github.io/rpl
         run: npm run build
 
       - uses: actions/configure-pages@v5
