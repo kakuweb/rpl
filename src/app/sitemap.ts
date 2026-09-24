@@ -5,7 +5,7 @@ import type { MetadataRoute } from "next";
 export const dynamic = "force-static";
 
 import { getNews, getPapers } from "@/lib/queries";
-import { navigation, site } from "@/lib/site";
+import { navigation, pageUrl } from "@/lib/site";
 
 export const revalidate = 3600;
 
@@ -15,17 +15,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getNews(),
   ]);
 
-  const url = (path: string) => new URL(path, site.url).toString();
-
   return [
-    { url: url("/"), priority: 1 },
-    ...navigation.map((item) => ({ url: url(item.href), priority: 0.8 })),
+    { url: pageUrl("/"), priority: 1 },
+    ...navigation.map((item) => ({ url: pageUrl(item.href), priority: 0.8 })),
     ...papers.map((paper) => ({
-      url: url(`/research/${paper.slug}`),
+      url: pageUrl(`/research/${paper.slug}`),
       priority: 0.7,
     })),
     ...news.map((item) => ({
-      url: url(`/news/${item.slug}`),
+      url: pageUrl(`/news/${item.slug}`),
       lastModified: new Date(item.published_at),
       priority: 0.6,
     })),

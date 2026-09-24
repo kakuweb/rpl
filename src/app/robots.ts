@@ -4,11 +4,11 @@ import type { MetadataRoute } from "next";
 // rigenerare a runtime, il file si scrive una volta a build.
 export const dynamic = "force-static";
 
-import { site } from "@/lib/site";
+import { pageUrl } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: new URL("/sitemap.xml", site.url).toString(),
+    sitemap: pageUrl("/sitemap.xml"),
   };
 }

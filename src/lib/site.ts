@@ -52,6 +52,19 @@ export const social = [
   },
 ] as const;
 
+/**
+ * URL assoluto di una pagina, per sitemap.xml e robots.txt.
+ *
+ * Non usa `new URL(path, site.url)`: un percorso che inizia con "/" sostituisce
+ * l'intero percorso della base, quindi con il sito servito da un sottopercorso
+ * (…/rpl) il prefisso spariva e la sitemap elencava indirizzi inesistenti.
+ * I canonical non ne soffrono: quelli li risolve Next con metadataBase.
+ */
+export const pageUrl = (path: string) => {
+  const base = site.url.replace(/\/+$/, "");
+  return path === "/" ? `${base}/` : `${base}${path}`;
+};
+
 export const navigation = [
   { href: "/people", label: "People" },
   { href: "/research", label: "Research" },
