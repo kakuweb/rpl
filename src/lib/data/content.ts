@@ -446,6 +446,21 @@ export const researchLines: ResearchLine[] = [
 
 export const news: NewsItem[] = [
   {
+    id: "european-researchers-night-2026",
+    slug: "european-researchers-night-2026",
+    title: "The lab at the European Researchers' Night in Bari",
+    category: "Outreach",
+    excerpt: "On Friday 25 September the lab brings its work out of the department and into Piazza Umberto I: fiber muscles you can watch contract, and a gripper that picks things up with a charge of electricity. For all ages, until late.",
+    body: "The RoboPhysics Laboratory takes part in the European Researchers' Night 2026, in the gazebo set up in Piazza Umberto I in Bari, on Friday 25 September from 15:00 to 22:00.\n\nTwo of the lab's technologies will be there to be seen and handled. The first is the electrofluidic fiber muscles: fibers barely two millimetres thick that contract when an electrical impulse circulates the liquid inside them, reaching force, contraction and speed comparable to those of human muscle.\n\nThe second is gripping by electroadhesion — a kind of suction cup that needs no vacuum: a small electrical charge is enough to make it stick to surfaces of any shape, from a flat sheet to a piece of fruit.\n\nThe activity is open to all ages, with no booking. Vito Cacucciolo and Nicola Creanza are there for the lab, with the Department of Mechanics, Mathematics and Management of Politecnico di Bari.",
+    image_url: "/news/ern-2026.png",
+    image_label: "Poster — European Researchers' Night 2026, Bari",
+    gallery: [],
+    source_url: "https://ern-bari.it/eventi/robophysics-laboratory/",
+    source_label: "The event on the ERN Bari site",
+    published_at: "2026-09-24T00:00:00.000Z",
+    published: true,
+  },
+  {
     id: "japan-embassy-visit-2026",
     slug: "japan-embassy-visit-2026",
     title: "The Science & Technology Attaché of the Embassy of Japan visits the lab",
