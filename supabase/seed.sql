@@ -5,7 +5,7 @@
 
 -- ----------------------------------------------------------------- people --
 -- Usciti dal gruppo: la seed è rieseguibile, quindi vanno tolti esplicitamente.
-delete from public.people where slug in ('gabriele-pupillo', 'gennaro-vitucci', 'phd-slot', 'alumni-slot-1', 'alumni-slot-2');
+delete from public.people where slug in ('gabriele-pupillo', 'gennaro-vitucci', 'phd-slot', 'alumni-slot-1', 'alumni-slot-2', 'visitor-slot-1', 'visitor-slot-2');
 
 insert into public.people (slug, name, role, role_group, bio, photo_url, photo_label, profile_url, sort_order) values
   ('vito-cacucciolo', 'Vito Cacucciolo', 'Principal Investigator', 'pi',
@@ -59,13 +59,10 @@ insert into public.people (slug, name, role, role_group, bio, photo_url, photo_l
 
   -- Segnaposto: le sezioni Visitors e Alumni compaiono solo se hanno righe.
   -- Il testo fra parentesi quadre dice cosa ci va; vanno sostituiti o tolti.
-  ('visitor-slot-1', '[Name Surname]', 'Visiting Researcher', 'visitors',
-   $t$[Home institution, period of the stay and topic worked on in the lab.]$t$,
+  -- TODO: periodo del soggiorno da aggiungere alla bio.
+  ('wahei-kamimura', 'Wahei Kamimura', 'Visiting Researcher', 'visitors',
+   $t$Flexible and stretchable electronics: printed circuits and deformable sensors for bioelectronics and soft robotics. Researcher in the Fukuda Research Group at Osaka University.$t$,
    null, 'Portrait photo', null, 110),
-
-  ('visitor-slot-2', '[Name Surname]', 'Visiting PhD Student', 'visitors',
-   $t$[Home institution, period of the stay and topic worked on in the lab.]$t$,
-   null, 'Portrait photo', null, 120),
 
   -- TODO: ruolo, anni nel laboratorio e posizione attuale da confermare.
   ('paolo-di-molfetta', 'Paolo Di Molfetta', 'Alumnus', 'alumni',
