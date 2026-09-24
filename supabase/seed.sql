@@ -26,7 +26,7 @@ insert into public.people (slug, name, role, role_group, bio, photo_url, photo_l
    '/people/andrea-castellaneta.jpg', 'Portrait photo', 'https://www.linkedin.com/in/andreacastellaneta1/', 60),
 
   ('cesare-cariddi', 'Cesare Cariddi', 'PhD Student', 'phd',
-   $t$Within the ERC RoboFluid project and the national PhD programme in Autonomous Systems (DAuSy).$t$,
+   $t$Within the ERC RoboFluid project and the national PhD programme in Autonomous Systems (D-RIM).$t$,
    '/people/cesare-cariddi.jpg', 'Portrait photo', 'https://www.linkedin.com/in/cesare-cariddi-7982a92bb/', 70),
 
   ('elisabetta-annese', 'Elisabetta Annese', 'MSc Student', 'students',

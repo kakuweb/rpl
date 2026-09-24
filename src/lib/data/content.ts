@@ -89,7 +89,7 @@ export const people: Person[] = [
     name: "Cesare Cariddi",
     role: "PhD Student",
     role_group: "phd",
-    bio: "Within the ERC RoboFluid project and the national PhD programme in Autonomous Systems (DAuSy).",
+    bio: "Within the ERC RoboFluid project and the national PhD programme in Autonomous Systems (D-RIM).",
     photo_url: "/people/cesare-cariddi.jpg",
     photo_label: "Portrait photo",
     profile_url: "https://www.linkedin.com/in/cesare-cariddi-7982a92bb/",
