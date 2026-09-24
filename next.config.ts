@@ -8,7 +8,8 @@ import type { NextConfig } from "next";
  *                  Server Action funzionano.
  *   GitHub Pages   attivato impostando NEXT_PUBLIC_BASE_PATH (lo fa il
  *                  workflow in .github/workflows/pages.yml). Genera HTML
- *                  statico in out/, servito da kakuweb.github.io/rpl.
+ *                  statico in out/, servito da
+ *                  robophysics-poliba.github.io/rpl.
  *
  * Una sola variabile comanda tutto, ed è la stessa che src/lib/site.ts usa
  * per `asset()`: così il prefisso delle pagine e quello delle immagini non

@@ -11,8 +11,8 @@ export const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
  *
  * Serve perché con `images.unoptimized` Next NON applica il basePath agli
  * `src` di next/image: i link di navigazione lo prendono, le immagini no.
- * Senza questo, su kakuweb.github.io/rpl sarebbero tutte 404. Gli indirizzi
- * assoluti (le miniature YouTube) restano intatti.
+ * Senza questo, su robophysics-poliba.github.io/rpl sarebbero tutte 404.
+ * Gli indirizzi assoluti (le miniature YouTube) restano intatti.
  */
 export const asset = (path: string) =>
   path.startsWith("/") ? `${basePath}${path}` : path;
