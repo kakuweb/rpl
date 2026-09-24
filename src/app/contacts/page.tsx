@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { Container, InnerHero } from "@/components/ui";
 import { site } from "@/lib/site";
 
-const mapQuery = encodeURIComponent(
-  `${site.institution}, Via Edoardo Orabona 4, 70125 Bari`,
-);
+// Pin e indicazioni puntano alle stesse coordinate di site.ts: prima
+// l'indirizzo era riscritto a mano qui, e poteva divergere da quello mostrato.
+const mapQuery = `${site.coords.lat},${site.coords.lng}`;
 
 const intro =
   "The lab is open to collaborations with companies, thesis students, PhD candidates and research institutions.";

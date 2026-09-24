@@ -31,7 +31,13 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   email: "vito.cacucciolo@poliba.it",
   department: "Department of Mechanics, Mathematics and Management (DMMM)",
-  address: "Politecnico di Bari — Via Edoardo Orabona 4, 70125 Bari, Italy",
+  address: "Politecnico di Bari — Viale Japigia 188, 70126 Bari, Italy",
+  /**
+   * Coordinate del laboratorio, usate per il pin della mappa e per le
+   * indicazioni stradali. Sono più affidabili di una ricerca testuale, che
+   * su un viale lungo può cadere sul civico sbagliato.
+   */
+  coords: { lat: 41.1126074, lng: 16.9008456 },
   spinoff: { name: "OmniGrasp", url: "https://omnigrasp.com" },
 } as const;
 
