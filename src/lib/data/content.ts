@@ -584,7 +584,7 @@ export const videos: Video[] = [
     slug: "miniature-stretchable-pump",
     title: "A miniature stretchable pump for the next generation of soft robots",
     youtube_id: "knOsNjW3Wu0",
-    category: "Research",
+    category: "Research (When Vito was at EPFL-LMTS)",
     date_label: "2019",
     description:
       "The stretchable pump published in Nature: electricity becomes flow with no moving parts. Video: EPFL.",
@@ -597,7 +597,7 @@ export const videos: Video[] = [
     slug: "thermoregulatory-clothing",
     title: "Untethered thermoregulatory clothing using EHD fiber pumps",
     youtube_id: "T3SxOuonEo8",
-    category: "Research",
+    category: "Research (When Vito was at EPFL-LMTS)",
     date_label: "2023",
     description:
       "Fluidic circuits woven into a garment that heats and cools the wearer, with no external pump. Video: LMTS, EPFL.",
