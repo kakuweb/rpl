@@ -33,12 +33,13 @@ jobs:
 
       - run: npm ci
 
-      # NEXT_PUBLIC_BASE_PATH è ciò che accende l'export statico e mette il
-      # prefisso /rpl a pagine e immagini (vedi next.config.ts e lib/site.ts).
+      # STATIC_EXPORT accende l'export statico (vedi next.config.ts). Il sito
+      # sta sulla radice di robophysics.poliba.it, quindi niente
+      # NEXT_PUBLIC_BASE_PATH: pagine e immagini non hanno prefisso.
       - name: Build statico
         env:
-          NEXT_PUBLIC_BASE_PATH: /rpl
-          NEXT_PUBLIC_SITE_URL: https://robophysics-poliba.github.io/rpl
+          STATIC_EXPORT: "1"
+          NEXT_PUBLIC_SITE_URL: https://robophysics.poliba.it
         run: npm run build
 
       - uses: actions/configure-pages@v5

@@ -9,7 +9,7 @@
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
     "db:setup": "node scripts/db-setup.mjs",
-    "build:pages": "NEXT_PUBLIC_BASE_PATH=/rpl next build"
+    "build:pages": "STATIC_EXPORT=1 next build"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.9",

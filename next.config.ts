@@ -6,17 +6,19 @@ import type { NextConfig } from "next";
  *   normale        `npm run dev` / `npm run build` — server Next completo:
  *                  immagini ottimizzate, rigenerazione ogni 5 minuti, e le
  *                  Server Action funzionano.
- *   GitHub Pages   attivato impostando NEXT_PUBLIC_BASE_PATH (lo fa il
- *                  workflow in .github/workflows/pages.yml). Genera HTML
- *                  statico in out/, servito da
- *                  robophysics-poliba.github.io/rpl.
+ *   GitHub Pages   attivato da STATIC_EXPORT=1 (lo fa il workflow in
+ *                  .github/workflows/pages.yml). Genera HTML statico in
+ *                  out/, servito da robophysics.poliba.it.
  *
- * Una sola variabile comanda tutto, ed è la stessa che src/lib/site.ts usa
- * per `asset()`: così il prefisso delle pagine e quello delle immagini non
- * possono divergere. In locale, senza variabile, nulla cambia.
+ * Il sottopercorso è una variabile a parte, NEXT_PUBLIC_BASE_PATH: sulla
+ * radice di un dominio resta vuota. È la stessa che src/lib/site.ts usa per
+ * `asset()`, così il prefisso delle pagine e quello delle immagini non
+ * possono divergere. Impostarla accende anche l'export statico: senza server
+ * un sottopercorso non avrebbe senso. In locale, senza variabili, nulla
+ * cambia.
  */
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const perPages = basePath !== "";
+const perPages = process.env.STATIC_EXPORT === "1" || basePath !== "";
 
 const nextConfig: NextConfig = {
   images: {
