@@ -32,6 +32,14 @@ export function SiteHeader() {
           height={101}
           priority
         />
+        <Image
+          className="poliba"
+          src={asset("/poliba-logo.png")}
+          alt={site.institution}
+          width={500}
+          height={240}
+          priority
+        />
       </Link>
 
       {/* Visibile solo sotto i 960px: sopra, la navigazione sta in riga. */}
